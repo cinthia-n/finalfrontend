@@ -96,8 +96,8 @@ export class CompanyComponent implements OnInit {
     });
   }*/
 
-  onBorrar() {
-    this.requestService.delete(this.url, 1).subscribe(
+  onBorrar(id) {
+    this.requestService.delete(this.url, id).subscribe(
       response => {
         // this.router.navigate(['../'], { relativeTo: this.route });
         // this.successDeleted(res);

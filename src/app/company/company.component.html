@@ -89,6 +89,7 @@
 
         <mat-list dense>
           <mat-list-item *ngFor="let employee of employees2">
+            <button mat-raised-button color="warn" (click)="onBorrar(employee.id)">Eliminar</button>
             <mat-list-item>{{employee.id}}</mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item>{{employee.firstName}}</mat-list-item>
@@ -100,6 +101,9 @@
             <mat-list-item>{{employee.jobDescription}}</mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item>{{employee.jobPosition}}</mat-list-item>
+            <mat-divider></mat-divider>
+
+
 
             <!--<span matLine>{{employee.id}}</span>
             <span matLine>{{employee.firstName}}</span>
