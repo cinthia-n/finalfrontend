@@ -1,0 +1,226 @@
+<div>
+  <!--<h2>-->
+    <!--Lista de Empleados-->
+  <!--</h2>-->
+
+  <!--<button mat-fab color="primary">Nuevo</button>-->
+  <!--<button mat-raised-button (click)="openDialog()"> + Nuevo </button>-->
+  <!--<button mat-fab color="primary">Eliminar</button>-->
+
+  <mat-tab-group>
+    <mat-tab label="Empleados">
+      <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Registro de Empleados
+          </mat-panel-title>
+          <mat-panel-description>
+            Ingresar todos los datos
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+
+        <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
+          <label>
+            <span>Nombre: </span>
+            <mat-form-field>
+              <input matInput
+                     type="text"
+                     placeholder="Nombres"
+                     formControlName="firstName">
+            </mat-form-field>
+          </label><br><br>
+          <label>
+            <span>Apellido: </span>
+            <mat-form-field>
+              <input matInput
+                     type="text"
+                     placeholder="Apellidos"
+                     formControlName="lastName">
+            </mat-form-field>
+          </label><br><br>
+          <label>
+            <span>job Position: </span>
+            <mat-form-field>
+              <input matInput
+                     type="text"
+                     placeholder="Puesto"
+                     formControlName="jobPosition">
+            </mat-form-field>
+          </label><br><br>
+          <label>
+            <span>job Code:  </span>
+            <mat-form-field>
+              <input matInput
+                     type="text"
+                     placeholder="codigo de trabajo"
+                     formControlName="jobCode">
+            </mat-form-field>
+          </label><br><br>
+          <label>
+            <span>Featured:  </span>
+            <mat-form-field>
+              <input matInput
+                     type="text"
+                     placeholder="destacado: true or false"
+                     formControlName="featured">
+            </mat-form-field>
+          </label><br><br>
+          <label>
+            <span>job Description: </span>
+            <mat-form-field>
+              <input matInput
+                     type="text"
+                     placeholder="descripcion"
+                     formControlName="jobDescription">
+            </mat-form-field>
+          </label><br><br>
+          <button type="submit" mat-flat-button color="primary" > Enviar</button>
+        </form>
+
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+      <h3>Lista de Empleados</h3>
+
+      <div fxFlex>
+
+        <mat-list dense>
+          <mat-list-item *ngFor="let employee of employees2">
+            <mat-list-item>{{employee.id}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>{{employee.firstName}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>{{employee.lastName}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>{{employee.jobCode}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>{{employee.jobDescription}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>{{employee.jobPosition}}</mat-list-item>
+
+            <!--<span matLine>{{employee.id}}</span>
+            <span matLine>{{employee.firstName}}</span>
+            <span matLine>{{employee.lastName}}</span>
+            <span matLine>{{employee.jobPosition}}</span>
+            <span matLine>{{employee.jobDescription}}</span>-->
+
+
+
+
+
+          </mat-list-item>
+        </mat-list>
+
+      </div>
+
+
+      <!--<mat-list dense>
+        <mat-list-item *ngFor="let employee of employees">
+          <img matListAvatar [src]="employee.image" alt="{{employee.name}}">
+          <span matLine>{{employee.name}}</span>
+          <span matLine>{{employee.jobPosition}}</span>
+          <span matLine>{{employee.jobDescription}}</span>
+
+          <button mat-raised-button color="accent">Editar</button>
+          <button mat-raised-button color="warn" (click)="onBorrar()">Eliminar</button>
+
+        </mat-list-item>
+      </mat-list>-->
+
+    </mat-tab>
+
+    <mat-tab label="Contratos">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Registro de Contratos
+            </mat-panel-title>
+            <mat-panel-description>
+              Ingresar todos los datos
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+
+          <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
+            <label>
+              <span>Nombre: </span>
+              <mat-form-field>
+                <input matInput
+                       type="text"
+                       placeholder="Nombres"
+                       formControlName="firstName">
+              </mat-form-field>
+            </label><br><br>
+
+            <label>
+              <span>job Description: </span>
+              <mat-form-field>
+                <input matInput
+                       type="text"
+                       placeholder="descripcion"
+                       formControlName="jobDescription">
+              </mat-form-field>
+            </label><br><br>
+            <button type="submit" mat-flat-button color="primary"> Enviar</button>
+          </form>
+
+
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-tab>
+  </mat-tab-group>
+
+
+
+
+  <div>
+
+
+
+
+
+
+
+
+
+
+    <table >
+
+      <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <!--<ng-container matColumnDef="position" class="mat-elevation-z8">-->
+        <!--<th mat-header-cell *matHeaderCellDef> No. </th>-->
+        <!--<td mat-cell *matCellDef="let element"> {{element.position}} </td>-->
+      <!--</ng-container>-->
+
+      <!--&lt;!&ndash; Name Column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="name">-->
+        <!--<th mat-header-cell *matHeaderCellDef> Name </th>-->
+        <!--<td mat-cell *matCellDef="let element"> {{element.name}} </td>-->
+      <!--</ng-container>-->
+
+      <!--&lt;!&ndash; Weight Column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="weight">-->
+        <!--<th mat-header-cell *matHeaderCellDef> Weight </th>-->
+        <!--<td mat-cell *matCellDef="let element"> {{element.weight}} </td>-->
+      <!--</ng-container>-->
+
+      <!--&lt;!&ndash; Symbol Column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="symbol">-->
+        <!--<th mat-header-cell *matHeaderCellDef> Symbol </th>-->
+        <!--<td mat-cell *matCellDef="let element"> {{element.symbol}} </td>-->
+      <!--</ng-container>-->
+
+
+
+
+    </table>
+
+  </div>
+</div>

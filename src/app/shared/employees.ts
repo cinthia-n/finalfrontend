@@ -3,8 +3,8 @@ import {Employee} from './employee';
 export const EMPLOYEES: Employee[] = [
   {
     id: 0,
-    name: 'Henry Cavill',
-    image: '/assets/images/henry.jpg',
+    firstName: 'Henry Cavill',
+    lastName: '/assets/images/henry.jpg',
     jobPosition: 'Chief Enterprise Officer',
     jobCode: 'CEO',
     featured: true,
@@ -14,8 +14,8 @@ export const EMPLOYEES: Employee[] = [
   },
   {
     id: 1,
-    name: 'Ben Affleck',
-    image: '/assets/images/ben.jpg',
+    firstName: 'Ben Affleck',
+    lastName: '/assets/images/ben.jpg',
     jobPosition: 'Chief Technology Officer',
     jobCode: 'CTO',
     featured: false,
@@ -24,8 +24,8 @@ export const EMPLOYEES: Employee[] = [
   },
   {
     id: 2,
-    name: 'Gal Gadot',
-    image: '/assets/images/gal.jpg',
+    firstName: 'Gal Gadot',
+    lastName: '/assets/images/gal.jpg',
     jobPosition: 'Software Lead',
     jobCode: 'CTO',
     featured: false,
@@ -34,8 +34,8 @@ export const EMPLOYEES: Employee[] = [
   },
   {
     id: 3,
-    name: 'Amy Adams',
-    image: '/assets/images/amy.jpg',
+    firstName: 'Amy Adams',
+    lastName: '/assets/images/amy.jpg',
     jobPosition: 'Executive User Experience Chef',
     jobCode: 'EC',
     featured: false,

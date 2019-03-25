@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Employee} from '../shared/employee';
 import {EmployeeService} from '../services/employee.service';
 import {LoginComponent} from '../login/login.component';
@@ -11,23 +11,22 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.scss']
+  selector: 'app-company',
+  templateUrl: './company.component.html',
+  styleUrls: ['./company.component.scss']
 })
-export class EmployeeComponent implements OnInit {
+export class CompanyComponent implements OnInit {
 
-  // constructor() { }
-
-  // ngOnInit() {
-  // }
+  panelOpenState = false;
 
   employees: Employee[];
+  employees2: Employee[];
   user: FormGroup;
   public url = AppURL.getUrlEmployee();
-  private baseUrl2 = '';
 
-  constructor(private http: HttpClient, private employeeService: EmployeeService, public dialog: MatDialog, private requestService: RequestService) {
+  constructor(private http: HttpClient, private employeeService: EmployeeService,
+              public dialog: MatDialog, private requestService: RequestService,
+              @Inject('BaseURL') private BaseURL) {
   }
   // "firstName": "John kintaro",
   // "lastName": "Doe",
@@ -37,6 +36,11 @@ export class EmployeeComponent implements OnInit {
   // "featured": true,
   // "jobDescription": "Descripcion de job"
   ngOnInit() {
+
+    this.employeeService.getEmployees2().subscribe(employees2 => {
+      return this.employees2 = employees2;
+    });
+
     this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
     this.user = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
@@ -61,7 +65,7 @@ export class EmployeeComponent implements OnInit {
     console.log( this.user.value);
   }
 
-  onBorrar2(id: number): Observable<any> {
+ /* onBorrar2(id: number): Observable<any> {
     console.log('vamos ');
     console.log(this.url+'/'+id);
 
@@ -69,7 +73,7 @@ export class EmployeeComponent implements OnInit {
     // return this.http.delete(`${this.baseUrl2}/${id}`, { responseType: 'text' });
     // return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
     return this.requestService.delete(this.url, id);
-  }
+  }*/
 
   /*deleteUser(user){ this.requestService.delete(this.url, '3').subscribe(
       (data)=>{
@@ -101,7 +105,7 @@ export class EmployeeComponent implements OnInit {
         //  this.router.navigate(['/compra']);
       },
       error => {
-        console.log('hay errores muchcachos');
+        console.log('hay errores ');
         console.log(error);
       }
     );
@@ -111,5 +115,6 @@ export class EmployeeComponent implements OnInit {
   openRegEmployee() {
     this.dialog.open(RegEmployeeComponent, {width: '500px', height: '450px'});
   }
+
 
 }

@@ -1,7 +1,7 @@
 export class Employee {
   id: number;
-  name: string;
-  image: string;
+  firstName: string;
+  lastName: string;
   jobPosition: string;
   jobCode: string;
   jobDescription: string;
