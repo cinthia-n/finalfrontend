@@ -28,13 +28,13 @@ export class CompanyComponent implements OnInit {
               public dialog: MatDialog, private requestService: RequestService,
               @Inject('BaseURL') private BaseURL) {
   }
-  // "firstName": "John kintaro",
+  // "firstName": "John",
   // "lastName": "Doe",
   // "image": null,
   // "jobPosition": null,
   // "jobCode": null,
   // "featured": true,
-  // "jobDescription": "Descripcion de job"
+  // "jobDescription": "OPERATIVE"
   ngOnInit() {
 
     this.employeeService.getEmployees2().subscribe(employees2 => {
